@@ -1,0 +1,13 @@
+version: '3'
+services:
+  vue:
+    build:
+      context: ./docker/vue
+    container_name: todolist-vue
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/app
+    working_dir: /app
+    tty: true
+    command: sh -c "cd assets && yarn install && yarn serve"
